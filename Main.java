@@ -4,7 +4,7 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        int[][] array = new int[5][2];
+        int[][] array = new int[12][11];
         Random random = new Random();
 
         for (int i = 0; i < array.length; i++) {
@@ -55,18 +55,17 @@ public class Main {
 
     public static void sort2DArrayByColumns(int[][] array) {
         System.out.println("Starting Column Sort...");
-        for (int i = 0; i < array[i].length; i++) {
-            System.out.println();
+        for (int i = 0; i < array[0].length; i++) {
             for (int j = 0; j < array.length; j++) {
                 int minIndex = array.length - 1;
                 for (int c = j; c < array.length; c++) {
-                    if (array[j][minIndex] > array[j][c]) {
+                    if (array[minIndex][i] > array[c][i]) {
                         minIndex = c;
                     }
                 }
                 int temp = array[j][i];
-                array[j][i] = array[j][minIndex];
-                array[j][minIndex] = temp;
+                array[j][i] = array[minIndex][i];
+                array[minIndex][i] = temp;
             }
         }
     }
